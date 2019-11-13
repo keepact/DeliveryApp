@@ -13,7 +13,8 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.2"
+    "sequelize": "^5.21.2",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
