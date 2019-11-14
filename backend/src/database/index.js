@@ -5,10 +5,11 @@ import Client from '../app/models/Client';
 import Address from '../app/models/Address';
 import Order from '../app/models/Order';
 import Product from '../app/models/Product';
+import Store from '../app/models/Store';
 
 import databaseConfig from '../config/database';
 
-const models = [User, Client, Address, Order, Product];
+const models = [User, Client, Address, Order, Product, Store];
 
 class Database {
   constructor() {

@@ -14,6 +14,13 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
+      store_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'stores', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
       value: {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,

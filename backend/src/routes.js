@@ -6,6 +6,7 @@ import ClientController from './app/controllers/ClientController';
 import AddressController from './app/controllers/AddressController';
 import OrderController from './app/controllers/OrderController';
 import ProductController from './app/controllers/ProductController';
+import StoreController from './app/controllers/StoreController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -25,5 +26,7 @@ routes.post('/clients/:client_id/addresses', AddressController.store);
 
 routes.post('/clients/:client_id/orders', OrderController.store);
 routes.post('/orders/:order_id/products', ProductController.store);
+
+routes.post('/stores', StoreController.store);
 
 export default routes;

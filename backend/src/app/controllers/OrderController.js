@@ -4,7 +4,7 @@ import Client from '../models/Client';
 class OrderController {
   async store(req, res) {
     const { client_id } = req.params;
-    const { value, date } = req.body;
+    const { store_id, value, date } = req.body;
 
     const client = await Client.findByPk(client_id);
 
@@ -13,6 +13,7 @@ class OrderController {
     }
 
     const order = await Order.create({
+      store_id,
       value,
       date,
       client_id,
