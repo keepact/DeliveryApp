@@ -1,13 +1,13 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Store extends Model {
+class Delivery extends Model {
   static init(sequelize) {
     super.init(
       {
         name: Sequelize.STRING,
-        zipcode: Sequelize.STRING,
-        street: Sequelize.STRING,
-        number: Sequelize.INTEGER,
+        date: Sequelize.DATE,
+        start_point: Sequelize.STRING,
+        end_point: Sequelize.STRING,
       },
       {
         sequelize,
@@ -18,4 +18,4 @@ class Store extends Model {
   }
 }
 
-export default Store;
+export default Delivery;
