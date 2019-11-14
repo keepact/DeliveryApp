@@ -1,6 +1,12 @@
 import Delivery from '../models/Delivery';
 
 class DeliveryController {
+  async index(req, res) {
+    const delivery = await Delivery.findAll();
+
+    res.json(delivery);
+  }
+
   async store(req, res) {
     const { id, name, date, start_point, end_point } = req.body;
 

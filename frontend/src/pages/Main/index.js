@@ -7,7 +7,7 @@ export default function Main() {
   const [orders, setOrders] = useState('');
 
   async function loadOrders() {
-    const response = await api.get('/clients/1/addresses');
+    const response = await api.get('/deliveries');
     console.log(response);
   }
 
