@@ -3,6 +3,8 @@ import { parseISO, format } from 'date-fns';
 
 import api from '../../services/api';
 
+import Header from '../../components/Header';
+
 import { Container, DeliveryTable } from './styles';
 
 export default function Main() {
@@ -24,39 +26,42 @@ export default function Main() {
   }, []);
 
   return (
-    <Container>
-      <DeliveryTable>
-        <thead>
-          <tr>
-            <th>Número da entrega</th>
-            <th>Data da entrega</th>
-            <th>Nome do Cliente</th>
-            <th>Ponto Inicial</th>
-            <th>Ponto Final</th>
-          </tr>
-        </thead>
-        {orders.map(delivery => (
-          <tbody key={delivery.id}>
+    <>
+      <Header />
+      <Container>
+        <DeliveryTable>
+          <thead>
             <tr>
-              <td>
-                <span>#00{delivery.id}</span>
-              </td>
-              <td>
-                <span>{delivery.dateFormatted}</span>
-              </td>
-              <td>
-                <span>{delivery.name}</span>
-              </td>
-              <td>
-                <span>{delivery.start_point}</span>
-              </td>
-              <td>
-                <span>{delivery.end_point}</span>
-              </td>
+              <th>Número da entrega</th>
+              <th>Data da entrega</th>
+              <th>Nome do Cliente</th>
+              <th>Ponto Inicial</th>
+              <th>Ponto Final</th>
             </tr>
-          </tbody>
-        ))}
-      </DeliveryTable>
-    </Container>
+          </thead>
+          {orders.map(delivery => (
+            <tbody key={delivery.id}>
+              <tr>
+                <td>
+                  <span>#00{delivery.id}</span>
+                </td>
+                <td>
+                  <span>{delivery.dateFormatted}</span>
+                </td>
+                <td>
+                  <span>{delivery.name}</span>
+                </td>
+                <td>
+                  <span>{delivery.start_point}</span>
+                </td>
+                <td>
+                  <span>{delivery.end_point}</span>
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </DeliveryTable>
+      </Container>
+    </>
   );
 }
