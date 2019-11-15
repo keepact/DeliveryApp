@@ -1,19 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import api from '../../services/api';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
 export default function Main() {
-  const [orders, setOrders] = useState('');
+  const [name, setName] = useState('');
+  const [date, setDate] = useState('');
+  const [start, setStart] = useState('');
+  const [end, setEnd] = useState('');
 
-  async function loadOrders() {
-    const response = await api.get('/deliveries');
-    console.log(response);
+  async function registerOrder(e) {
+    e.preventDefault();
+    try {
+      await api.post('/deliveries', {
+        name,
+        date,
+        start_point: start,
+        end_point: end,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  useEffect(() => {
-    loadOrders();
-  }, []);
-
-  return <h1>Main</h1>;
+  return (
+    <Container>
+      <div>
+        <form onSubmit={registerOrder}>
+          <input
+            type="text"
+            placeholder="Nome do Cliente"
+            onChange={e => setName(e.target.value)}
+          />
+          <input type="date" onChange={e => setDate(e.target.value)} /> />
+          <input
+            type="text"
+            placeholder="Ponto de partida"
+            onChange={e => setStart(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Ponto de chegada"
+            onChange={e => setEnd(e.target.value)}
+          />
+          <button type="submit">Registrar pedido</button>
+        </form>
+      </div>
+    </Container>
+  );
 }
