@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
 
 import api from '../../services/api';
@@ -7,7 +8,7 @@ import Header from '../../components/Header';
 
 import { Container, DeliveryTable } from './styles';
 
-export default function Main() {
+export default function List() {
   const [orders, setOrders] = useState([]);
 
   async function loadOrders() {
@@ -43,7 +44,9 @@ export default function Main() {
             <tbody key={delivery.id}>
               <tr>
                 <td>
-                  <span>#00{delivery.id}</span>
+                  <Link to={`/list/${delivery.id}`}>
+                    <span>#00{delivery.id}</span>
+                  </Link>
                 </td>
                 <td>
                   <span>{delivery.dateFormatted}</span>
