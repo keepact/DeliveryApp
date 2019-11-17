@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Geocode from 'react-geocode';
 import { withRouter } from 'react-router-dom';
-import { GoogleMap, Marker } from 'react-google-maps';
+import { GoogleMap, DirectionsRenderer } from 'react-google-maps';
 import api from '../../services/api';
 
-import location from '../../assets/images/location.svg';
 import MapStyles from './styles';
 
 function Maps({ match }) {
@@ -12,41 +11,45 @@ function Maps({ match }) {
 
   Geocode.setLanguage('pt-BR');
 
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
-  const [latLng, setlatLng] = useState('');
-  const [lonLng, setLonlng] = useState('');
+  const [directions, setDirections] = useState('');
+
+  async function loadData() {
+    const response = await api.get(`/deliveries/${match.params.id}`);
+
+    const { start_point, end_point } = response.data;
+
+    const startPoint = await Geocode.fromAddress(start_point);
+    const { lat, lng } = startPoint.results[0].geometry.location;
+
+    const endPoint = await Geocode.fromAddress(end_point);
+    const {
+      lat: latitude,
+      lng: longitude,
+    } = endPoint.results[0].geometry.location;
+
+    const directionsService = new window.google.maps.DirectionsService();
+
+    const origin = { lat: latitude, lng: longitude };
+    const destination = { lat, lng };
+
+    directionsService.route(
+      {
+        origin,
+        destination,
+        travelMode: window.google.maps.TravelMode.DRIVING,
+      },
+      (result, status) => {
+        if (status === window.google.maps.DirectionsStatus.OK) {
+          setDirections(result);
+          console.log(result);
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      }
+    );
+  }
 
   useEffect(() => {
-    async function loadData() {
-      const response = await api.get(`/deliveries/${match.params.id}`);
-
-      const { start_point, end_point } = response.data;
-
-      Geocode.fromAddress(start_point).then(
-        res => {
-          const { lat, lng } = res.results[0].geometry.location;
-          console.log(lat, lng);
-          setLatitude(lat);
-          setLongitude(lng);
-        },
-        error => {
-          console.error(error);
-        }
-      );
-
-      Geocode.fromAddress(end_point).then(
-        res => {
-          const { lat, lng } = res.results[0].geometry.location;
-          console.log(lat, lng);
-          setlatLng(lat);
-          setLonlng(lng);
-        },
-        error => {
-          console.error(error);
-        }
-      );
-    }
     loadData();
   }, []);
 
@@ -56,26 +59,7 @@ function Maps({ match }) {
       defaultCenter={{ lat: -22.9035, lng: -43.2096 }}
       defaultOptions={{ styles: MapStyles }}
     >
-      <Marker
-        position={{
-          lat: latitude,
-          lng: longitude,
-        }}
-        icon={{
-          url: location,
-          scaledSize: new window.google.maps.Size(25, 25),
-        }}
-      />
-      <Marker
-        position={{
-          lat: latLng,
-          lng: lonLng,
-        }}
-        icon={{
-          url: location,
-          scaledSize: new window.google.maps.Size(25, 25),
-        }}
-      />
+      <DirectionsRenderer directions={directions} />
     </GoogleMap>
   );
 }
