@@ -6,11 +6,10 @@ import api from '../../services/api';
 
 import MapStyles from './styles';
 
+Geocode.setApiKey('api');
+Geocode.setLanguage('pt-BR');
+
 function Maps({ match }) {
-  Geocode.setApiKey('api');
-
-  Geocode.setLanguage('pt-BR');
-
   const [directions, setDirections] = useState('');
 
   async function loadData() {
