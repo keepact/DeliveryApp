@@ -1,17 +1,13 @@
 import { Router } from 'express';
 
-import SessionController from './app/controllers/SessionController';
-import UserController from './app/controllers/UserController';
-
-import authMiddleware from './app/middlewares/auth';
+import DeliveryController from './app/controllers/DeliveryController';
+import MapController from './app/controllers/MapController';
 
 const routes = new Router();
 
-routes.post('/sessions', SessionController.store);
-routes.post('/users', UserController.store);
+routes.get('/deliveries', DeliveryController.index);
+routes.post('/deliveries', DeliveryController.store);
 
-routes.use(authMiddleware);
-
-routes.put('/users', authMiddleware, UserController.update);
+routes.get('/deliveries/:id', MapController.index);
 
 export default routes;
