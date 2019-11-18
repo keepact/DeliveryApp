@@ -49,5 +49,5 @@ You will see any errors in the console.
 
 ## Learn More
 
-Contact the developer :), check out the [Dev Profile](https://github.com/keepact).<br />
+Doubts? Contact the developer. check out the [Dev Profile](https://github.com/keepact).<br />
 
