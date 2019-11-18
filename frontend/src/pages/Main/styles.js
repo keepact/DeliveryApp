@@ -60,4 +60,16 @@ export const Container = styled.div`
       }
     }
   }
+
+  a {
+    color: black;
+    margin-top: 15px;
+    font-size: 16px;
+    opacity: 0.8;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 `;
