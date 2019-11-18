@@ -28,6 +28,7 @@ function Main({ history }) {
       });
       history.push('/list');
     } catch (err) {
+      alert('Falha na requisição. Tente novamente.');
       console.log(err);
     }
   }
