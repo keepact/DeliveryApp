@@ -13,9 +13,15 @@ Application developed during job selection challenge
 
 ## libs used:
   
-  <strong>Frontend</strong>: React-router-dom, Axios, Yup, Styled-components, date-fns, Eslint, Prettier<br />
+  <strong>Frontend</strong>: react-router-dom, axios, styled-components, Prop-types, react-geocode, react-google-maps, polished and @rocketseat/unform<br />
   
-  <strong>Backend</strong>: Express, Sucrase, Nodemon Yup, @rocketseat/unform and others
+  <strong>Backend</strong>: express, sequelize, sucrase, nodemon, cors, pg and pg-hstore<br />
+  
+  <strong>Both</strong>: date-fns, Yup, Eslint, Prettier.
+  
+## Database:
+
+ Postgres
  
 ## Javascript Project:
  
