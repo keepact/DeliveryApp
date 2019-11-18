@@ -23,9 +23,9 @@ It is a generic App of deliveries. There are 3 screens:
 
 ## libs used:
   
-  <strong>Frontend</strong>: react-router-dom, axios, styled-components, Prop-types, react-geocode, react-google-maps, polished and @rocketseat/unform<br />
+  <strong>Frontend</strong>: react-router-dom, axios, styled-components, prop-types, react-geocode, react-google-maps, polished and @rocketseat/unform
   
-  <strong>Backend</strong>: express, sequelize, sucrase, nodemon, cors, pg and pg-hstore<br />
+  <strong>Backend</strong>: express, sequelize, sucrase, nodemon, cors, pg and pg-hstore
   
   <strong>Both</strong>: date-fns, Yup, Eslint, Prettier.
   
