@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import api from '../../services/api';
@@ -50,6 +50,7 @@ function Main({ history }) {
           <Input type="text" name="end_point" placeholder="Ponto de chegada" />
           <button type="submit">Registrar entrega</button>
         </Form>
+        <Link to="/list">Ir para a lista de entregas</Link>
       </div>
     </Container>
   );
