@@ -13,7 +13,9 @@ Application developed during job selection challenge
 
 ## libs used:
   
- React-router-dom, Axios, Styled-components, date-fns, Eslint, Prettier, </br>Express, Sucrase, Nodemon Yup, @rocketseat/unform and others
+  <strong>Frontend</strong>: React-router-dom, Axios, Yup, Styled-components, date-fns, Eslint, Prettier<br />
+  
+  <strong>Backend</strong>: Express, Sucrase, Nodemon Yup, @rocketseat/unform and others
  
 ## Javascript Project:
  
