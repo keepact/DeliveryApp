@@ -5,6 +5,12 @@ Delivery Management Application
 Application developed during job selection challenge
 
 
+## App Screen
+ 
+ <p align="center">
+  <img alt="GitHub language count" src="https://github.com/keepact/DeliveryApp/blob/master/app-screen.png">
+ </p>
+
 ## libs used:
   
  React-router-dom, Styled-components, Express, Yup, Eslint, Prettier
