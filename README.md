@@ -49,5 +49,5 @@ You will see any errors in the console.
 
 ## Learn More
 
-To learn React, check out the [Bootcamp documentation](https://rocketseat.com.br).<br />
+Contact the developer :), check out the [Dev Profile](https://github.com/keepact).<br />
 
