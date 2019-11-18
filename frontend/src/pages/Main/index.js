@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import api from '../../services/api';
 
@@ -29,7 +30,9 @@ function Main({ history }) {
       });
       history.push('/list');
     } catch (err) {
-      alert('Falha na requisição. Tente novamente.');
+      toast.error(
+        'Falha na requisição. Verifique seus dados e tente novamente.'
+      );
       console.log(err);
     }
   }
