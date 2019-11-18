@@ -6,8 +6,8 @@ class DeliveryController {
     const { page = 1 } = req.query;
 
     const delivery = await Delivery.findAll({
-      limit: 20,
-      offset: (page - 1) * 20,
+      limit: 10,
+      offset: (page - 1) * 10,
       attributes: ['id', 'name', 'date', 'start_point', 'end_point'],
     });
 
