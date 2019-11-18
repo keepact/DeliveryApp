@@ -15,11 +15,11 @@ Application developed during job selection challenge
 
 It is a generic App of deliveries. There are 3 screens: 
 
-1 - Delivery Registration 
+<strong>1</strong> - Delivery Registration 
 
-2 - List of Registered Deliveries
+<strong>2</strong> - List of Registered Deliveries
 
-3 - Route by Delivery ID  with the GoogleMaps API
+<strong>3</strong> - Route by Delivery ID  with the GoogleMaps API
 
 ## libs used:
   
