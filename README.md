@@ -8,7 +8,7 @@ Application developed during job selection challenge
 ## App Screen
  
  <p align="center">
-  <img alt="GitHub language count" src="https://github.com/keepact/DeliveryApp/blob/master/app-screen.png">
+  <img alt="GitHub language count" src="https://github.com/keepact/DeliveryApp/blob/master/app-view.png">
  </p>
  
 ## What is this application about?
