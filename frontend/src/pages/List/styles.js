@@ -48,7 +48,6 @@ export const PageActions = styled.div`
   button {
     background: #3b9eff;
     color: #fff;
-    cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     transition: opacity 0.25s ease-out;
@@ -60,6 +59,10 @@ export const PageActions = styled.div`
     &[disabled] {
       opacity: 0.35;
       cursor: not-allowed;
+    }
+
+    &[disabled]:hover {
+      opacity: 0.35;
     }
 
     &:hover {

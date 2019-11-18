@@ -24,6 +24,7 @@ function Main({ history }) {
       });
       history.push('/list');
     } catch (err) {
+      alert('Falha na requisição. Tente novamente.');
       console.log(err);
     }
   }
@@ -50,7 +51,7 @@ function Main({ history }) {
             placeholder="Ponto de chegada"
             onChange={e => setEnd(e.target.value)}
           />
-          <button type="submit">Registrar pedido</button>
+          <button type="submit">Registrar entrega</button>
         </form>
       </div>
     </Container>

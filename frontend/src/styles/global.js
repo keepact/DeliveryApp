@@ -22,7 +22,7 @@ export default createGlobalStyle`
     height: 100%
   }
 
-  button: {
+  button {
     cursor: pointer;
   }
 `;
