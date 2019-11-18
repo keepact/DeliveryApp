@@ -12,6 +12,7 @@ export default function List() {
   const [orders, setOrders] = useState([]);
   const [page, setPage] = useState(1);
 
+  // eslint-disable-next-line no-shadow
   async function loadOrders(page = 1) {
     const response = await api.get('/deliveries', {
       params: {
