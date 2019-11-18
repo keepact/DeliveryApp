@@ -13,7 +13,7 @@ Application developed during job selection challenge
 
 ## libs used:
   
- React-router-dom, Styled-components, Express, Yup, Eslint, Prettier
+ React-router-dom, Axios, Styled-components, date-fns, Eslint, Prettier, </br>Express, Sucrase, Nodemon Yup, @rocketseat/unform and others
  
 ## Javascript Project:
  
