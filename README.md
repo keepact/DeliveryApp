@@ -25,7 +25,7 @@ It is a generic App of deliveries. There are 3 screens:
   
   <strong>Frontend</strong>: react-router-dom, axios, styled-components, prop-types, react-geocode, react-google-maps, polished and @rocketseat/unform
   
-  <strong>Backend</strong>: express, dotenv, sequelize, sucrase, nodemon, cors, pg and pg-hstore
+  <strong>Backend</strong>: express, sequelize, sucrase, nodemon, cors, pg, pg-hstore and dotenv
   
   <strong>Both</strong>: date-fns, Yup, Eslint, Prettier.
   
