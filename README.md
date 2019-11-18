@@ -41,7 +41,7 @@ It is a generic App of deliveries. There are 3 screens:
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn`
 
 Runs the app in the development mode.<br />
 
