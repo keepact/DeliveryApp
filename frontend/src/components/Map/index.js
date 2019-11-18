@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Geocode from 'react-geocode';
 import { withRouter } from 'react-router-dom';
 import { GoogleMap, DirectionsRenderer } from 'react-google-maps';
@@ -62,5 +63,13 @@ function Maps({ match }) {
     </GoogleMap>
   );
 }
+
+Maps.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default withRouter(Maps);
