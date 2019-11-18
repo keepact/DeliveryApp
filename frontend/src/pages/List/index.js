@@ -2,6 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
 
+import loadingAnimation from '../../assets/animations/loading.json';
+import Animation from '../../components/Animation';
+
 import api from '../../services/api';
 
 import Header from '../../components/Header';
@@ -11,6 +14,7 @@ import { Container, DeliveryTable, PageActions } from './styles';
 export default function List() {
   const [orders, setOrders] = useState([]);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   // eslint-disable-next-line no-shadow
   async function loadOrders(page = 1) {
@@ -26,6 +30,7 @@ export default function List() {
 
     setOrders(data);
     setPage(page);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -49,51 +54,60 @@ export default function List() {
   return (
     <>
       <Header />
-      <Container>
-        <DeliveryTable>
-          <thead>
-            <tr>
-              <th>Número de Registro</th>
-              <th>Data da Entrega</th>
-              <th>Nome do Cliente</th>
-              <th>Ponto Inicial</th>
-              <th>Ponto Final</th>
-            </tr>
-          </thead>
-          {orders.map(delivery => (
-            <tbody key={delivery.id}>
+      {loading ? (
+        <Animation
+          animation={loadingAnimation}
+          size={380}
+          autoplay={false}
+          loop={false}
+        />
+      ) : (
+        <Container>
+          <DeliveryTable>
+            <thead>
               <tr>
-                <td>
-                  <Link to={`/list/${delivery.id}`}>
-                    <span>#00{delivery.id}</span>
-                  </Link>
-                </td>
-                <td>
-                  <span>{delivery.dateFormatted}</span>
-                </td>
-                <td>
-                  <span>{delivery.name}</span>
-                </td>
-                <td>
-                  <span>{delivery.start_point}</span>
-                </td>
-                <td>
-                  <span>{delivery.end_point}</span>
-                </td>
+                <th>Número de Registro</th>
+                <th>Data da Entrega</th>
+                <th>Nome do Cliente</th>
+                <th>Ponto Inicial</th>
+                <th>Ponto Final</th>
               </tr>
-            </tbody>
-          ))}
-        </DeliveryTable>
-        <PageActions>
-          <button type="button" disabled={page < 2} onClick={prevPage}>
-            Anterior
-          </button>
-          <span>Página {page}</span>
-          <button type="button" disabled={ordersSize < 10} onClick={nextPage}>
-            Próximo
-          </button>
-        </PageActions>
-      </Container>
+            </thead>
+            {orders.map(delivery => (
+              <tbody key={delivery.id}>
+                <tr>
+                  <td>
+                    <Link to={`/list/${delivery.id}`}>
+                      <span>#00{delivery.id}</span>
+                    </Link>
+                  </td>
+                  <td>
+                    <span>{delivery.dateFormatted}</span>
+                  </td>
+                  <td>
+                    <span>{delivery.name}</span>
+                  </td>
+                  <td>
+                    <span>{delivery.start_point}</span>
+                  </td>
+                  <td>
+                    <span>{delivery.end_point}</span>
+                  </td>
+                </tr>
+              </tbody>
+            ))}
+          </DeliveryTable>
+          <PageActions>
+            <button type="button" disabled={page < 2} onClick={prevPage}>
+              Anterior
+            </button>
+            <span>Página {page}</span>
+            <button type="button" disabled={ordersSize < 10} onClick={nextPage}>
+              Próximo
+            </button>
+          </PageActions>
+        </Container>
+      )}
     </>
   );
 }
