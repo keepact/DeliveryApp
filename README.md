@@ -10,6 +10,16 @@ Application developed during job selection challenge
  <p align="center">
   <img alt="GitHub language count" src="https://github.com/keepact/DeliveryApp/blob/master/app-screen.png">
  </p>
+ 
+## What is this application about?
+
+It is a generic App of deliveries. There are 3 screens: 
+
+1 - Delivery Registration 
+
+2 - List of Registered Deliveries
+
+3 - Route by Delivery ID  with the GoogleMaps API
 
 ## libs used:
   
