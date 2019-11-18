@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import MapStyles from './styles';
 
-Geocode.setApiKey('api');
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API);
 Geocode.setLanguage('pt-BR');
 
 function Maps({ match }) {
@@ -28,8 +28,8 @@ function Maps({ match }) {
 
     const directionsService = new window.google.maps.DirectionsService();
 
-    const origin = { lat: latitude, lng: longitude };
-    const destination = { lat, lng };
+    const origin = { lat, lng };
+    const destination = { lat: latitude, lng: longitude };
 
     directionsService.route(
       {

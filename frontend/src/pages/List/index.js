@@ -13,7 +13,11 @@ export default function List() {
   const [page, setPage] = useState(1);
 
   async function loadOrders(page = 1) {
-    const response = await api.get(`/deliveries?page=${page}`);
+    const response = await api.get('/deliveries', {
+      params: {
+        page,
+      },
+    });
     const data = response.data.map(order => ({
       ...order,
       dateFormatted: format(parseISO(order.date), "dd'/'M/Y"),
@@ -48,8 +52,8 @@ export default function List() {
         <DeliveryTable>
           <thead>
             <tr>
-              <th>Número da entrega</th>
-              <th>Data da entrega</th>
+              <th>Número de Registro</th>
+              <th>Data da Entrega</th>
               <th>Nome do Cliente</th>
               <th>Ponto Inicial</th>
               <th>Ponto Final</th>
