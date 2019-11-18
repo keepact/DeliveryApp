@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { startOfHour, parseISO, isBefore } from 'date-fns';
 import Delivery from '../models/Delivery';
 
 class DeliveryController {
@@ -23,7 +24,7 @@ class DeliveryController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validation fails' });
+      return res.status(400).json({ error: 'Validação falhou' });
     }
 
     const { id, name, date, start_point, end_point } = req.body;
@@ -34,6 +35,14 @@ class DeliveryController {
 
     if (deliveryExists) {
       return res.status(400).json({ error: 'Entrega já existente' });
+    }
+
+    const hourStart = startOfHour(parseISO(date));
+
+    if (isBefore(hourStart, new Date())) {
+      return res
+        .status(400)
+        .json({ error: 'Datas passadas não são permitidas' });
     }
 
     const delivery = await Delivery.create({
