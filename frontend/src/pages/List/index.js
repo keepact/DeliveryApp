@@ -55,12 +55,7 @@ export default function List() {
     <>
       <Header />
       {loading ? (
-        <Animation
-          animation={loadingAnimation}
-          size={380}
-          autoplay={false}
-          loop={false}
-        />
+        <Animation animation={loadingAnimation} size={300} autoplay loop />
       ) : (
         <Container>
           <DeliveryTable>
