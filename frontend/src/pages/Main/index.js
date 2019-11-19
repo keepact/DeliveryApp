@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
+import * as Yup from 'yup';
 import PropTypes from 'prop-types';
+
 import { withRouter, Link } from 'react-router-dom';
 import { Form, Input, useField } from '@rocketseat/unform';
 import { toast } from 'react-toastify';
-import * as Yup from 'yup';
-
 import ReactDatepicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; // react datepicker css
+import 'react-datepicker/dist/react-datepicker.css';
 
 import api from '../../services/api';
 
 import logo from '../../assets/images/logo.jpeg';
-
 import { Container } from './styles';
 
 const schema = Yup.object().shape({
@@ -25,7 +24,7 @@ const schema = Yup.object().shape({
 
 const DatePicker = ({ name }) => {
   const ref = useRef(null);
-  const { fieldName, registerField, defaultValue, error } = useField(name); // the name of the prop in form object is used here
+  const { fieldName, registerField, defaultValue, error } = useField(name);
   const [selectedDate, setSelectedDate] = useState(defaultValue);
 
   useEffect(() => {
