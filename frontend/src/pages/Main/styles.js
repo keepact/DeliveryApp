@@ -9,10 +9,19 @@ export const Container = styled.div`
   align-items: center;
   padding: 0 20px;
 
-  div {
+  div[class='form-style'] {
     width: 100%;
     max-width: 315px;
     text-align: center;
+  }
+
+  label[class='placeholder'] {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    margin-left: 20px;
+    z-index: 1000;
+    visibility: visible;
   }
 
   img {
@@ -32,6 +41,7 @@ export const Container = styled.div`
       height: 44px;
       padding: 0 15px;
       margin: 0 0 10px;
+      min-width: 100%;
 
       &::placeholder {
         color: black;
@@ -45,7 +55,7 @@ export const Container = styled.div`
       font-weight: bold;
     }
 
-    button {
+    button[default] {
       margin: 5px 0 0;
       height: 44px;
       background: #3b9eff;
