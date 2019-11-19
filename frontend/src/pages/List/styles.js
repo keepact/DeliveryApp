@@ -4,14 +4,16 @@ export const Container = styled.div`
   padding: 30px;
   background: #fff;
   border-radius: 4px;
-
-  @media (max-width: 600px) {
-    padding: 0px;
-  }
 `;
 
 export const DeliveryTable = styled.table`
   width: 100%;
+
+  @media (max-width: 600px) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
   thead th {
     color: #999;
