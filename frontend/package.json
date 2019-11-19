@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@datepicker-react/styled": "^2.1.4",
     "@rocketseat/unform": "^1.6.1",
     "axios": "^0.19.0",
     "date-fns": "^2.0.0-beta.5",
