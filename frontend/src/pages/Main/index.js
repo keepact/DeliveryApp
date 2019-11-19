@@ -38,6 +38,15 @@ const DatePicker = ({ name }) => {
     });
   }, [fieldName]);
 
+  useEffect(() => {
+    const datePickers = document.getElementsByClassName(
+      'react-datepicker__input-container'
+    );
+    Array.from(datePickers).forEach(el =>
+      el.childNodes[0].setAttribute('readOnly', true)
+    );
+  }, []);
+
   return (
     <>
       <ReactDatepicker
