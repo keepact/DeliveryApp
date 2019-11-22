@@ -29,17 +29,18 @@ export default function AutoComplete({
           <Input name={name} type="text" {...getInputProps({ placeholder })} />
 
           <div>
-            {loading ? <div>...Loading</div> : null}
+            {loading ? <div>...Carregando</div> : null}
 
             {suggestions.map(suggestion => {
-              const style = {
-                backgroundColor: suggestion.active ? '#3b9eff' : '#fff',
-                color: suggestion.active ? '#fff' : 'black',
-              };
+              const className = suggestion.active
+                ? 'suggestion-item-active'
+                : 'suggestion-item';
 
               return (
-                <Container {...getSuggestionItemProps(suggestion, { style })}>
-                  {suggestion.description}
+                <Container
+                  {...getSuggestionItemProps(suggestion, { className })}
+                >
+                  <div className={className}>{suggestion.description}</div>
                 </Container>
               );
             })}

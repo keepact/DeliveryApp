@@ -9,20 +9,23 @@ export const Container = styled.div`
   align-items: center;
   padding: 0 20px;
 
-  div[class='form-style'] {
-    width: 100%;
-    max-width: 315px;
-    text-align: center;
-  }
+  a {
+    color: black;
+    margin-top: 15px;
+    font-size: 16px;
+    opacity: 0.8;
+    text-decoration: none;
 
-  label[class='placeholder'] {
-    position: absolute;
-    top: -20%;
-    left: 0;
-    margin-left: 20px;
-    z-index: 1000;
-    visibility: visible;
+    &:hover {
+      opacity: 1;
+    }
   }
+`;
+
+export const Wrapper = styled.div`
+  width: 100%;
+  max-width: 315px;
+  text-align: center;
 
   img {
     height: 121px;
@@ -54,33 +57,23 @@ export const Container = styled.div`
       margin: 0 0 10px;
       font-weight: bold;
     }
-
-    button[default] {
-      margin: 5px 0 0;
-      height: 44px;
-      background: #3b9eff;
-      font-weight: bold;
-      color: #fff;
-      border: 0;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: background 0.2s;
-
-      &:hover {
-        background: ${darken(0.03, '#3b9eff')};
-      }
-    }
   }
+`;
 
-  a {
-    color: black;
-    margin-top: 15px;
-    font-size: 16px;
-    opacity: 0.8;
-    text-decoration: none;
+export const SubmitButton = styled.button.attrs({
+  type: 'submit',
+})`
+  margin: 5px 0 0;
+  height: 44px;
+  background: #3b9eff;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.2s;
 
-    &:hover {
-      opacity: 1;
-    }
+  &:hover {
+    background: ${darken(0.03, '#3b9eff')};
   }
 `;
