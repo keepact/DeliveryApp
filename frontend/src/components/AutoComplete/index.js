@@ -2,6 +2,8 @@ import React from 'react';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { Input } from '@rocketseat/unform';
 
+import { Container } from './styles';
+
 export default function AutoComplete({
   onSelect,
   onChange,
@@ -9,8 +11,14 @@ export default function AutoComplete({
   placeholder,
   name,
 }) {
+  const searchOptions = {
+    componentRestrictions: { country: ['br'] },
+    types: ['address'],
+  };
+
   return (
     <PlacesAutocomplete
+      searchOptions={searchOptions}
       value={value}
       onChange={onChange}
       onSelect={onSelect}
@@ -26,12 +34,13 @@ export default function AutoComplete({
             {suggestions.map(suggestion => {
               const style = {
                 backgroundColor: suggestion.active ? '#3b9eff' : '#fff',
+                color: suggestion.active ? '#fff' : 'black',
               };
 
               return (
-                <div {...getSuggestionItemProps(suggestion, { style })}>
+                <Container {...getSuggestionItemProps(suggestion, { style })}>
                   {suggestion.description}
-                </div>
+                </Container>
               );
             })}
           </div>
