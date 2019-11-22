@@ -1,5 +1,6 @@
 import React from 'react';
 import PlacesAutocomplete from 'react-places-autocomplete';
+import PropTypes from 'prop-types';
 import { Input } from '@rocketseat/unform';
 
 import { Container } from './styles';
@@ -11,6 +12,18 @@ export default function AutoComplete({
   placeholder,
   name,
 }) {
+  AutoComplete.defaultProps = {
+    placeholder: 'Campo de input',
+    name: 'autocomplete',
+  };
+
+  AutoComplete.propTypes = {
+    onSelect: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    name: PropTypes.string,
+  };
   const searchOptions = {
     componentRestrictions: { country: ['br'] },
     types: ['address'],
