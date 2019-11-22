@@ -13,7 +13,7 @@ import DatePicker from '../../components/DatePicker';
 import api from '../../services/api';
 
 import logo from '../../assets/images/delivery.svg';
-import { Container } from './styles';
+import { Container, Wrapper, SubmitButton } from './styles';
 
 const fieldRequired = 'Esse campo é obrigatório';
 
@@ -49,8 +49,8 @@ function Main({ history }) {
 
   return (
     <Container>
-      <div className="form-style">
-        <img src={logo} alt="unicad" />
+      <Wrapper>
+        <img src={logo} alt="delivery app logo" />
 
         <Form schema={schema} onSubmit={registerOrder}>
           <Input type="text" name="name" placeholder="Nome do Cliente" />
@@ -70,12 +70,10 @@ function Main({ history }) {
             name="end_point"
           />
 
-          <button default type="submit">
-            Registrar entrega
-          </button>
+          <SubmitButton>Registrar entrega</SubmitButton>
         </Form>
         <Link to="/list">Ir para a lista de entregas</Link>
-      </div>
+      </Wrapper>
     </Container>
   );
 }
