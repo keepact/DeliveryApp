@@ -51,6 +51,7 @@ function Maps({ match }) {
 
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line
   }, []);
 
   return (
