@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 
-import logo from '../../assets/images/logo.jpeg';
+import logo from '../../assets/images/delivery.svg';
 
 export default function Header() {
   return (
